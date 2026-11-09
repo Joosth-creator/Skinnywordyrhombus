@@ -351,7 +351,9 @@ def eval_genomes(genomes, config):
             genome = item["genome"]
             net = item["net"]
 
-            genome.fitness += 0.1
+# Hier is de fitness funtie. Deze zorgt ervoor dat de vogel "koekjes" krijgt als hij 
+# door de pijpen gaat en dus zelf leert van de vorige generaties
+            genome.fitness += 5
 
             bird.move()
 

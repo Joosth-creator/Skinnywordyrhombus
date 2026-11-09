@@ -593,9 +593,6 @@ def play_winner(config_file):
             pygame.display.update()
 
 
-# --------------------------------------------------
-# HOOFDPROGRAMMA
-# --------------------------------------------------
 
 if __name__ == "__main__":
     try:

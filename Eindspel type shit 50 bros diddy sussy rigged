@@ -13,10 +13,6 @@ import neat
 import pygame
 
 
-# --------------------------------------------------
-# INSTELLINGEN
-# --------------------------------------------------
-
 pygame.init()
 pygame.font.init()
 
@@ -39,9 +35,6 @@ CONFIG_PATH = os.path.join(BASE_DIR, "config-feedforward.txt")
 WINNER_PATH = os.path.join(BASE_DIR, "winner.pkl")
 
 
-# --------------------------------------------------
-# AFBEELDINGEN LADEN
-# --------------------------------------------------
 
 def load_image(filename):
     path = os.path.join(IMG_DIR, filename)
@@ -72,9 +65,6 @@ base_img = pygame.transform.scale2x(load_image("base.png"))
 gen = 0
 
 
-# --------------------------------------------------
-# VOGEL
-# --------------------------------------------------
 
 class Bird:
     MAX_ROTATION = 25
@@ -145,9 +135,7 @@ class Bird:
         return pygame.mask.from_surface(self.img)
 
 
-# --------------------------------------------------
-# PIJP
-# --------------------------------------------------
+
 
 class Pipe:
     GAP = 160
@@ -191,9 +179,6 @@ class Pipe:
         return bool(top_point or bottom_point)
 
 
-# --------------------------------------------------
-# GROND
-# --------------------------------------------------
 
 class Base:
     VEL = 5
@@ -220,9 +205,7 @@ class Base:
         win.blit(self.IMG, (self.x2, self.y))
 
 
-# --------------------------------------------------
-# TEKENFUNCTIES
-# --------------------------------------------------
+
 
 def blit_rotate_center(surf, image, topleft, angle):
     rotated_image = pygame.transform.rotate(image, angle)
@@ -297,9 +280,6 @@ def draw_window(win, birds, pipes, base, score, generation, pipe_ind=0):
     pygame.display.update()
 
 
-# --------------------------------------------------
-# NEAT TRAINING
-# --------------------------------------------------
 
 def eval_genomes(genomes, config):
     global gen
@@ -428,9 +408,7 @@ def eval_genomes(genomes, config):
         )
 
 
-# --------------------------------------------------
-# TRAINING STARTEN EN WINNAAR OPSLAAN
-# --------------------------------------------------
+
 
 def run(config_file):
     if not os.path.isfile(config_file):
@@ -465,9 +443,6 @@ def run(config_file):
     print(WINNER_PATH)
 
 
-# --------------------------------------------------
-# EINDspel: ALLEEN DE BESTE VOGEL
-# --------------------------------------------------
 
 def play_winner(config_file):
     if not os.path.isfile(WINNER_PATH):
